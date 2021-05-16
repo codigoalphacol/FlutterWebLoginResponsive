@@ -12,19 +12,19 @@ class _NavigationDeviceState extends State<NavigationDevice> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double width = size.width > size.height ? size.height : size.width;
+     double width = MediaQuery.of(context).size.width;
 
     setState(() {
-      print(width);
+     print(width);    
     });
 
-    if (width < 590) {
-      return menuScreenPhone(context);
-    } else if (width > 591 && width < 700) {
+
+    if (width > 1050) {
+      return menuScreenDesktop(context);      
+    } else if (width > 600 && width < 1050) {
       return menuScreenTablet(context);
-    } else if (width > 700) {
-      return menuScreenDesktop(context);
+    } else if (width < 600) {
+      return menuScreenPhone(context);
     } else {
       return menuScreenDesktop(context);
     }
